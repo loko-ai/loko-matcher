@@ -1,6 +1,5 @@
-ds4biz-commons
 Flask
-flask-cors
-schwifty >= 2020.11.0
-spacy >= 3.1.3
+ds4biz-matcher
+gradio
+loko-client
 loko-extensions
