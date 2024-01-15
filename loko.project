@@ -1,0 +1,1060 @@
+{
+  "name": "provamatcher",
+  "id": "provamatcher",
+  "description": "",
+  "created_on": "09/06/2023, 05:06:10",
+  "last_modify": "26/09/2023, 14:28:45",
+  "graphs": {
+    "main": {
+      "nodes": [
+        {
+          "id": "6735eb18-efa7-41dc-b86d-c15d6eb18c34",
+          "position": {
+            "x": 760,
+            "y": 201
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 150,
+          "height": 56,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "name": "Trigger",
+            "events": null,
+            "description": "### Description\nThe TRIGGER component is used to start streams.\n\n### Output\nThe parameter Type can be set as a **String** or an **Object**. The parameter Value, on the other hand, defines the actual output of the component.",
+            "inputs": [],
+            "outputs": [
+              {
+                "id": "output",
+                "label": "output"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Common",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "type",
+                  "type": "select",
+                  "description": "The type of data",
+                  "label": "Type",
+                  "validation": {
+                    "required": "Required field"
+                  },
+                  "fragment": null,
+                  "advanced": false,
+                  "options": [
+                    "String",
+                    "Object"
+                  ],
+                  "value": null
+                },
+                {
+                  "name": "value",
+                  "type": "dynamic",
+                  "dynamicType": {
+                    "String": "area",
+                    "Object": "code"
+                  },
+                  "parent": "type",
+                  "label": "Value",
+                  "validation": {
+                    "required": "Required field"
+                  }
+                }
+              ],
+              "click": "Send message",
+              "icon": "RiPlayFill",
+              "values": {
+                "comment": "",
+                "alias": "",
+                "debug": false,
+                "type": "String",
+                "value": "Io mi chiamo Mario Rossi, il mio indirizzo email \u00e8 mario.rossi@gmail.com. Abito in Via Mazzara 251, vorrei trasferirmi a Via nilo 341.\n\nSaluti, \nMario Rossi"
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 760,
+            "y": 201
+          },
+          "__class__": "Node"
+        },
+        {
+          "id": "c7a9483a-744b-4aa2-8ce8-bf48802476e7",
+          "position": {
+            "x": 1075.011724335145,
+            "y": 319.2741934211146
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 150,
+          "height": 56,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "name": "Function",
+            "events": null,
+            "description": "### Description\nThe FUNCTION component is used to apply Python code to the input component's. The input can be retrieved using the variable *data*.\n\nTo be able to use data from components of type FUNCTION that are not linked together, the object is set repository.\n\n```python\nrepository.set('value', 5) - this sets the variable value to 5.\nrepository.get('value') - in this way the variable is called value and the value 5 is returned.\n```\n\n### Input\nThe input is used by the component using the variable **data**.\n\n### Output\nThe output coincides with the return of the code defined when the component was created.",
+            "inputs": [
+              {
+                "id": "input",
+                "label": "input",
+                "closed": false
+              }
+            ],
+            "outputs": [
+              {
+                "id": "output",
+                "label": "output"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Common",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "propagate",
+                  "type": "boolean",
+                  "label": "Flush at the end"
+                },
+                {
+                  "name": "notify_warnings",
+                  "type": "boolean",
+                  "label": "Notify warnings"
+                },
+                {
+                  "name": "code",
+                  "type": "code",
+                  "description": "A python function that processes the incoming message. \nVariables available are:\n- **data**: the incoming message\n",
+                  "label": "Code",
+                  "validation": {
+                    "required": "Required field"
+                  },
+                  "fragment": null,
+                  "advanced": false,
+                  "options": null,
+                  "value": null
+                }
+              ],
+              "click": null,
+              "icon": "RiCodeSSlashFill",
+              "values": {
+                "comment": "",
+                "alias": "",
+                "debug": false,
+                "propagate": true,
+                "notify_warnings": true,
+                "code": "return data.split(\" \")"
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 1075.011724335145,
+            "y": 319.2741934211146
+          },
+          "__class__": "Node"
+        },
+        {
+          "id": "78d15e2a-5aad-4bf5-8e40-04eb631ffd89",
+          "position": {
+            "x": 1650,
+            "y": 204
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 164,
+          "height": 104,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "name": "Trigger",
+            "events": null,
+            "description": "### Description\nThe TRIGGER component is used to start streams.\n\n### Output\nThe parameter Type can be set as a **String** or an **Object**. The parameter Value, on the other hand, defines the actual output of the component.",
+            "inputs": [],
+            "outputs": [
+              {
+                "id": "output",
+                "label": "output"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Common",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "type",
+                  "type": "select",
+                  "description": "The type of data",
+                  "label": "Type",
+                  "validation": {
+                    "required": "Required field"
+                  },
+                  "fragment": null,
+                  "advanced": false,
+                  "options": [
+                    "String",
+                    "Object"
+                  ],
+                  "value": null
+                },
+                {
+                  "name": "value",
+                  "type": "dynamic",
+                  "dynamicType": {
+                    "String": "area",
+                    "Object": "code"
+                  },
+                  "parent": "type",
+                  "label": "Value",
+                  "validation": {
+                    "required": "Required field"
+                  }
+                }
+              ],
+              "click": "Send message",
+              "icon": "RiPlayFill",
+              "values": {
+                "comment": "",
+                "alias": "Example Text",
+                "debug": false,
+                "type": "String",
+                "value": "Io mi chiamo Mario Rossi, il mio indirizzo email \u00e8 mario.rossi@gmail.com. Abito in Via Mazzara 251, vorrei trasferirmi a Via nilo 341.\n\nSaluti, \nMario Rossi"
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 1650,
+            "y": 204
+          },
+          "__class__": "Node"
+        },
+        {
+          "id": "6edfe4b8-0306-4740-a94b-076b644e01dd",
+          "position": {
+            "x": 1919.011724335145,
+            "y": 220.2741934211146
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 231,
+          "height": 72,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "name": "Function",
+            "events": null,
+            "description": "### Description\nThe FUNCTION component is used to apply Python code to the input component's. The input can be retrieved using the variable *data*.\n\nTo be able to use data from components of type FUNCTION that are not linked together, the object is set repository.\n\n```python\nrepository.set('value', 5) - this sets the variable value to 5.\nrepository.get('value') - in this way the variable is called value and the value 5 is returned.\n```\n\n### Input\nThe input is used by the component using the variable **data**.\n\n### Output\nThe output coincides with the return of the code defined when the component was created.",
+            "inputs": [
+              {
+                "id": "input",
+                "label": "input",
+                "closed": false
+              }
+            ],
+            "outputs": [
+              {
+                "id": "output",
+                "label": "output"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Common",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "propagate",
+                  "type": "boolean",
+                  "label": "Flush at the end"
+                },
+                {
+                  "name": "notify_warnings",
+                  "type": "boolean",
+                  "label": "Notify warnings"
+                },
+                {
+                  "name": "code",
+                  "type": "code",
+                  "description": "A python function that processes the incoming message. \nVariables available are:\n- **data**: the incoming message\n",
+                  "label": "Code",
+                  "validation": {
+                    "required": "Required field"
+                  },
+                  "fragment": null,
+                  "advanced": false,
+                  "options": null,
+                  "value": null
+                }
+              ],
+              "click": null,
+              "icon": "RiCodeSSlashFill",
+              "values": {
+                "comment": "",
+                "alias": "Custom Tokenizzation",
+                "debug": false,
+                "propagate": true,
+                "notify_warnings": true,
+                "code": "return data.split(\" \")"
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 1919.011724335145,
+            "y": 220.2741934211146
+          },
+          "__class__": "Node"
+        },
+        {
+          "id": "403e44e6-fa3f-4d32-9347-0d8a467f3f00",
+          "position": {
+            "x": 1080,
+            "y": 531
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 150,
+          "height": 56,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "fsdao": {
+              "daos": {
+                "data": {
+                  "data": {
+                    "value": {
+                      "base": "/home/loko/loko",
+                      "hidden": {},
+                      "type": null
+                    }
+                  }
+                }
+              }
+            },
+            "name": "Matcher",
+            "events": null,
+            "description": "### Description\nMATCHER is a component used to extract entities from documents using rules. Inside there is a set of specific objects for a certain type of research.\n\nIt is possible to individually recall these objects for match bases and from the composition of them it is possible to realize more complex and articulated rules. Matcher objects work a list of tokens obtained from the text by means of a tokenizer and are validated by means of specific checkers. Alternatively, you can directly pass a tokenized text, if you want to customize the sentences tokenization.\n\n\n### Configuration\n\nAvailable services allow you to select the MATCHER instance to use. \nrule is the field in which to insert the rules to be applied to the received text in input. The matcher are divided into:\n\n##### INDIVIDUAL TOKENS\n- simple(value): it is used to match a specific token \n\n- regex(regex,flags=re.IGNORECASE,junk=\"\",terminate=\"$\"): it allows to match tokens using a regex. \n\n- fuzzy(ent,t=.8): the token is matched by analogy, and \u201ct\u201d parameter indicates the minimum threshold. \n\n- syn(options): it allows to match any of the tokens inserted into it.\n\n- all(): gives back individually all the tokens present in the document.\n\n- condition(cond): within it requires a condition and is used in combination with other matchers.\n\n##### **MULTI TOKEN**\n- span(matcher,m,n,separator=\"\",strategy=\"longest\"): set a minimum value (m) and a maximum value (n), it can match plus tokens that meet the conditions imposed in the matcher (join tokens to try to match the rule, between one token and the other you can set a separator).\n\n- phrase(matchers): more matchers can be inserted inside. The tokens must sequentially respect all the matchers inserted inside the object; it returns the tokens that have respected the conditions. \n\n- perm(matchers): similar to Phasematcher but the conditions do not have to be respected in order, the matchers are exchanged.\n\n- rep(matcher,minlen=1,maxlen=100): repeats the match inserted inside the object until the tokens all respect the condition set sequentially. It stops when the condition is no longer respected: the minimum and maximum of times can be indicated in the creation of the object.\n\n- skip(start_matcher,end_matcher,max_skip=5,skipcond=MatchAll()): returns the tokens that within a range (max_skip) can match initial (start_matcher) and final (end_matcher) condition. You can set, for tokens between initial and final match, a condition that they must comply (skip_cond). \n\n- expand(matcher,left=10,right=10): starting from the matchate token, based on the range set within the object, it also matches a certain number of tokens left (left) and a certain number of tokens right (right). \n\n- context(*matchers,max_dist=100): returns all tokens in a context bounded by matchers within the object, if the distance does not exceed that of max_dist.\n\n##### **CHOICE OF DIFFERENT CONDITIONS** \n\n- oneof(*matchers): more matchers can be inserted inside. It matches all tokens that respect at least one of the matcher within it (if a token matches in more matcher, returns it several times).\n \n- backoff(*matchers): given a series of matchers, it returns what that matches first, leaving out all the others. \n\n- chain(matcher1,matcher2): it applies the second matcher to the tokens extracted from the first. It is used in combination with expand, skip, and context.\n\n##### NORMALIZATION OF TOKENS\n- norm(matcher,fun): it normalizes the tokens (via a function) that are passed into the matcher present within it. Only for control, does not transform them.\n\n- lower(matcher): it allows passing all the tokens to the matcher inserted inside the object in lowercase. Only for the control, does not transform them.\n\n##### **FILTER FUNCTIONS**\n- filter(matcher,cond): it applies a filter to the candidates (matched tokens) after applying the matcher, it returns the candidates who meet the (boolean) condition set in the filter. The filter is a function that takes in input m and n, where n is the document length.\n\nexpandfilter(matcher,cond,left=10,right=10): it allows to apply a filter, starting from an initial matcher, also to the tokens external to it (the number depends on the parameters \"left\" and \"right\"). Useful if you want to filter candidates that respect the created rules.\n\n##### **POST-PROCESSING**\n- exclude(matcher): the tokens that match the condition within the object, will not then be displayed within the candidates. \n\n- post(matcher,f): it applies the function (f) to tokens extracted from the matcher with the aim of cleaning them up. The difference with the norm is that in this case the tokens are modified only for display. \n\n- token(fun=None): it is used to create new functions.\n\n### Input\nThe component accepts as input a string that represents the text to be analyzed. \n\n### Output\nThe output structure consists of two keys: tokens and matches. Tokens returns the tokenization of the received text in input and a boolean indicates whether the token is part of matches. Matcher is represented with a list.\nEach match contains the position of the first token that makes up the match (start), the position of the last (end), the score reached, the submatches and the list of tokens that make up the match. Taking as an example a simple input: \"Hello 1010 world\" and supposing to extract consecutive numbers within this sentence, the output will be:\n```json\n{\"tokens\": [[\"Hello\", False], [\"1010\", True], [\"world\", False]], \n\"matches\":[{\"start\": 1, \"end\": 2, \"score\": 1, \"submatches\": None, \n\"tokens\": [\"1010\"]}]}\n```\nWe then got a single match consisting of a single token, \"1010\", with score 1.",
+            "inputs": [
+              {
+                "id": "extract_matches",
+                "label": "extract matches",
+                "service": "extract_matches",
+                "to": "extract_matches"
+              }
+            ],
+            "outputs": [
+              {
+                "id": "extract_matches",
+                "label": "extract matches"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Custom",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "include_tokens",
+                  "type": "boolean",
+                  "label": "Include Tokens Information",
+                  "helper": "",
+                  "group": "",
+                  "value": true,
+                  "description": "",
+                  "validation": null
+                },
+                {
+                  "name": "rules",
+                  "type": "code",
+                  "label": "Rules",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "",
+                  "validation": {
+                    "required": "Required field"
+                  }
+                }
+              ],
+              "click": null,
+              "icon": "RiHeartsLine",
+              "values": {
+                "comment": "",
+                "alias": "mario rossi post-processed",
+                "debug": true,
+                "include_tokens": true,
+                "rules": "mario = regex(\"(i?)mario rossi\")\nspannino = span(mario, 1,2,\" \")\ndef join_text(tokens):\n  print(f\"tokensssss {tokens}\")\n  print(\"miao\")\n  return \"-\".join([t for t in tokens])\n\n\npost(spannino, join_text)\n# address  "
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 1080,
+            "y": 531
+          },
+          "__class__": "Node"
+        },
+        {
+          "id": "ddcacdb5-24b9-473b-b5ef-97d37bda79b2",
+          "position": {
+            "x": 1299,
+            "y": 328
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 281,
+          "height": 72,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "fsdao": {
+              "daos": {
+                "data": {
+                  "data": {
+                    "value": {
+                      "base": "/home/loko/loko",
+                      "hidden": {},
+                      "type": null
+                    }
+                  }
+                }
+              }
+            },
+            "name": "Matcher",
+            "events": null,
+            "description": "### Description\nMATCHER is a component used to extract entities from documents using rules. Inside there is a set of specific objects for a certain type of research.\n\nIt is possible to individually recall these objects for match bases and from the composition of them it is possible to realize more complex and articulated rules. Matcher objects work a list of tokens obtained from the text by means of a tokenizer and are validated by means of specific checkers. Alternatively, you can directly pass a tokenized text, if you want to customize the sentences tokenization.\n\n\n### Configuration\n\nAvailable services allow you to select the MATCHER instance to use. \nrule is the field in which to insert the rules to be applied to the received text in input. The matcher are divided into:\n\n##### INDIVIDUAL TOKENS\n- simple(value): it is used to match a specific token \n\n- regex(regex,flags=re.IGNORECASE,junk=\"\",terminate=\"$\"): it allows to match tokens using a regex. \n\n- fuzzy(ent,t=.8): the token is matched by analogy, and \u201ct\u201d parameter indicates the minimum threshold. \n\n- syn(options): it allows to match any of the tokens inserted into it.\n\n- all(): gives back individually all the tokens present in the document.\n\n- condition(cond): within it requires a condition and is used in combination with other matchers.\n\n##### **MULTI TOKEN**\n- span(matcher,m,n,separator=\"\",strategy=\"longest\"): set a minimum value (m) and a maximum value (n), it can match plus tokens that meet the conditions imposed in the matcher (join tokens to try to match the rule, between one token and the other you can set a separator).\n\n- phrase(matchers): more matchers can be inserted inside. The tokens must sequentially respect all the matchers inserted inside the object; it returns the tokens that have respected the conditions. \n\n- perm(matchers): similar to Phasematcher but the conditions do not have to be respected in order, the matchers are exchanged.\n\n- rep(matcher,minlen=1,maxlen=100): repeats the match inserted inside the object until the tokens all respect the condition set sequentially. It stops when the condition is no longer respected: the minimum and maximum of times can be indicated in the creation of the object.\n\n- skip(start_matcher,end_matcher,max_skip=5,skipcond=MatchAll()): returns the tokens that within a range (max_skip) can match initial (start_matcher) and final (end_matcher) condition. You can set, for tokens between initial and final match, a condition that they must comply (skip_cond). \n\n- expand(matcher,left=10,right=10): starting from the matchate token, based on the range set within the object, it also matches a certain number of tokens left (left) and a certain number of tokens right (right). \n\n- context(*matchers,max_dist=100): returns all tokens in a context bounded by matchers within the object, if the distance does not exceed that of max_dist.\n\n##### **CHOICE OF DIFFERENT CONDITIONS** \n\n- oneof(*matchers): more matchers can be inserted inside. It matches all tokens that respect at least one of the matcher within it (if a token matches in more matcher, returns it several times).\n \n- backoff(*matchers): given a series of matchers, it returns what that matches first, leaving out all the others. \n\n- chain(matcher1,matcher2): it applies the second matcher to the tokens extracted from the first. It is used in combination with expand, skip, and context.\n\n##### NORMALIZATION OF TOKENS\n- norm(matcher,fun): it normalizes the tokens (via a function) that are passed into the matcher present within it. Only for control, does not transform them.\n\n- lower(matcher): it allows passing all the tokens to the matcher inserted inside the object in lowercase. Only for the control, does not transform them.\n\n##### **FILTER FUNCTIONS**\n- filter(matcher,cond): it applies a filter to the candidates (matched tokens) after applying the matcher, it returns the candidates who meet the (boolean) condition set in the filter. The filter is a function that takes in input m and n, where n is the document length.\n\nexpandfilter(matcher,cond,left=10,right=10): it allows to apply a filter, starting from an initial matcher, also to the tokens external to it (the number depends on the parameters \"left\" and \"right\"). Useful if you want to filter candidates that respect the created rules.\n\n##### **POST-PROCESSING**\n- exclude(matcher): the tokens that match the condition within the object, will not then be displayed within the candidates. \n\n- post(matcher,f): it applies the function (f) to tokens extracted from the matcher with the aim of cleaning them up. The difference with the norm is that in this case the tokens are modified only for display. \n\n- token(fun=None): it is used to create new functions.\n\n### Input\nThe component accepts as input a string that represents the text to be analyzed. \n\n### Output\nThe output structure consists of two keys: tokens and matches. Tokens returns the tokenization of the received text in input and a boolean indicates whether the token is part of matches. Matcher is represented with a list.\nEach match contains the position of the first token that makes up the match (start), the position of the last (end), the score reached, the submatches and the list of tokens that make up the match. Taking as an example a simple input: \"Hello 1010 world\" and supposing to extract consecutive numbers within this sentence, the output will be:\n```json\n{\"tokens\": [[\"Hello\", False], [\"1010\", True], [\"world\", False]], \n\"matches\":[{\"start\": 1, \"end\": 2, \"score\": 1, \"submatches\": None, \n\"tokens\": [\"1010\"]}]}\n```\nWe then got a single match consisting of a single token, \"1010\", with score 1.",
+            "inputs": [
+              {
+                "id": "extract_matches",
+                "label": "extract matches",
+                "service": "extract_matches",
+                "to": "extract_matches"
+              }
+            ],
+            "outputs": [
+              {
+                "id": "extract_matches",
+                "label": "extract matches"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Custom",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "include_tokens",
+                  "type": "boolean",
+                  "label": "Include Tokens Information",
+                  "helper": "",
+                  "group": "",
+                  "value": true,
+                  "description": "",
+                  "validation": null
+                },
+                {
+                  "name": "rules",
+                  "type": "code",
+                  "label": "Rules",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "",
+                  "validation": {
+                    "required": "Required field"
+                  }
+                }
+              ],
+              "click": null,
+              "icon": "RiHeartsLine",
+              "values": {
+                "comment": "",
+                "alias": "mail good tokenization",
+                "debug": true,
+                "include_tokens": true,
+                "rules": "regex(\"^\\S+@\\S+$\")"
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 1299,
+            "y": 328
+          },
+          "__class__": "Node"
+        },
+        {
+          "id": "7b6c06c5-9274-4499-8e24-3a00d4f1a9a6",
+          "position": {
+            "x": 1187,
+            "y": 44
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 150,
+          "height": 72,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "fsdao": {
+              "daos": {
+                "data": {
+                  "data": {
+                    "value": {
+                      "base": "/home/loko/loko",
+                      "hidden": {},
+                      "type": null
+                    }
+                  }
+                }
+              }
+            },
+            "name": "Matcher",
+            "events": null,
+            "description": "### Description\nMATCHER is a component used to extract entities from documents using rules. Inside there is a set of specific objects for a certain type of research.\n\nIt is possible to individually recall these objects for match bases and from the composition of them it is possible to realize more complex and articulated rules. Matcher objects work a list of tokens obtained from the text by means of a tokenizer and are validated by means of specific checkers. Alternatively, you can directly pass a tokenized text, if you want to customize the sentences tokenization.\n\n\n### Configuration\n\nAvailable services allow you to select the MATCHER instance to use. \nrule is the field in which to insert the rules to be applied to the received text in input. The matcher are divided into:\n\n##### INDIVIDUAL TOKENS\n- simple(value): it is used to match a specific token \n\n- regex(regex,flags=re.IGNORECASE,junk=\"\",terminate=\"$\"): it allows to match tokens using a regex. \n\n- fuzzy(ent,t=.8): the token is matched by analogy, and \u201ct\u201d parameter indicates the minimum threshold. \n\n- syn(options): it allows to match any of the tokens inserted into it.\n\n- all(): gives back individually all the tokens present in the document.\n\n- condition(cond): within it requires a condition and is used in combination with other matchers.\n\n##### **MULTI TOKEN**\n- span(matcher,m,n,separator=\"\",strategy=\"longest\"): set a minimum value (m) and a maximum value (n), it can match plus tokens that meet the conditions imposed in the matcher (join tokens to try to match the rule, between one token and the other you can set a separator).\n\n- phrase(matchers): more matchers can be inserted inside. The tokens must sequentially respect all the matchers inserted inside the object; it returns the tokens that have respected the conditions. \n\n- perm(matchers): similar to Phasematcher but the conditions do not have to be respected in order, the matchers are exchanged.\n\n- rep(matcher,minlen=1,maxlen=100): repeats the match inserted inside the object until the tokens all respect the condition set sequentially. It stops when the condition is no longer respected: the minimum and maximum of times can be indicated in the creation of the object.\n\n- skip(start_matcher,end_matcher,max_skip=5,skipcond=MatchAll()): returns the tokens that within a range (max_skip) can match initial (start_matcher) and final (end_matcher) condition. You can set, for tokens between initial and final match, a condition that they must comply (skip_cond). \n\n- expand(matcher,left=10,right=10): starting from the matchate token, based on the range set within the object, it also matches a certain number of tokens left (left) and a certain number of tokens right (right). \n\n- context(*matchers,max_dist=100): returns all tokens in a context bounded by matchers within the object, if the distance does not exceed that of max_dist.\n\n##### **CHOICE OF DIFFERENT CONDITIONS** \n\n- oneof(*matchers): more matchers can be inserted inside. It matches all tokens that respect at least one of the matcher within it (if a token matches in more matcher, returns it several times).\n \n- backoff(*matchers): given a series of matchers, it returns what that matches first, leaving out all the others. \n\n- chain(matcher1,matcher2): it applies the second matcher to the tokens extracted from the first. It is used in combination with expand, skip, and context.\n\n##### NORMALIZATION OF TOKENS\n- norm(matcher,fun): it normalizes the tokens (via a function) that are passed into the matcher present within it. Only for control, does not transform them.\n\n- lower(matcher): it allows passing all the tokens to the matcher inserted inside the object in lowercase. Only for the control, does not transform them.\n\n##### **FILTER FUNCTIONS**\n- filter(matcher,cond): it applies a filter to the candidates (matched tokens) after applying the matcher, it returns the candidates who meet the (boolean) condition set in the filter. The filter is a function that takes in input m and n, where n is the document length.\n\nexpandfilter(matcher,cond,left=10,right=10): it allows to apply a filter, starting from an initial matcher, also to the tokens external to it (the number depends on the parameters \"left\" and \"right\"). Useful if you want to filter candidates that respect the created rules.\n\n##### **POST-PROCESSING**\n- exclude(matcher): the tokens that match the condition within the object, will not then be displayed within the candidates. \n\n- post(matcher,f): it applies the function (f) to tokens extracted from the matcher with the aim of cleaning them up. The difference with the norm is that in this case the tokens are modified only for display. \n\n- token(fun=None): it is used to create new functions.\n\n### Input\nThe component accepts as input a string that represents the text to be analyzed. \n\n### Output\nThe output structure consists of two keys: tokens and matches. Tokens returns the tokenization of the received text in input and a boolean indicates whether the token is part of matches. Matcher is represented with a list.\nEach match contains the position of the first token that makes up the match (start), the position of the last (end), the score reached, the submatches and the list of tokens that make up the match. Taking as an example a simple input: \"Hello 1010 world\" and supposing to extract consecutive numbers within this sentence, the output will be:\n```json\n{\"tokens\": [[\"Hello\", False], [\"1010\", True], [\"world\", False]], \n\"matches\":[{\"start\": 1, \"end\": 2, \"score\": 1, \"submatches\": None, \n\"tokens\": [\"1010\"]}]}\n```\nWe then got a single match consisting of a single token, \"1010\", with score 1.",
+            "inputs": [
+              {
+                "id": "extract_matches",
+                "label": "extract matches",
+                "service": "extract_matches",
+                "to": "extract_matches"
+              }
+            ],
+            "outputs": [
+              {
+                "id": "extract_matches",
+                "label": "extract matches"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Custom",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "include_tokens",
+                  "type": "boolean",
+                  "label": "Include Tokens Information",
+                  "helper": "",
+                  "group": "",
+                  "value": true,
+                  "description": "",
+                  "validation": null
+                },
+                {
+                  "name": "rules",
+                  "type": "code",
+                  "label": "Rules",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "",
+                  "validation": {
+                    "required": "Required field"
+                  }
+                }
+              ],
+              "click": null,
+              "icon": "RiHeartsLine",
+              "values": {
+                "comment": "",
+                "alias": "mail",
+                "debug": true,
+                "include_tokens": true,
+                "rules": "regex(\"^\\S+@\\S+$\")"
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 1187,
+            "y": 44
+          },
+          "__class__": "Node"
+        },
+        {
+          "id": "163a9617-4100-4533-ad64-960228d340cf",
+          "position": {
+            "x": 1276,
+            "y": 160
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 150,
+          "height": 72,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "fsdao": {
+              "daos": {
+                "data": {
+                  "data": {
+                    "value": {
+                      "base": "/home/loko/loko",
+                      "hidden": {},
+                      "type": null
+                    }
+                  }
+                }
+              }
+            },
+            "name": "Matcher",
+            "events": null,
+            "description": "### Description\nMATCHER is a component used to extract entities from documents using rules. Inside there is a set of specific objects for a certain type of research.\n\nIt is possible to individually recall these objects for match bases and from the composition of them it is possible to realize more complex and articulated rules. Matcher objects work a list of tokens obtained from the text by means of a tokenizer and are validated by means of specific checkers. Alternatively, you can directly pass a tokenized text, if you want to customize the sentences tokenization.\n\n\n### Configuration\n\nAvailable services allow you to select the MATCHER instance to use. \nrule is the field in which to insert the rules to be applied to the received text in input. The matcher are divided into:\n\n##### INDIVIDUAL TOKENS\n- simple(value): it is used to match a specific token \n\n- regex(regex,flags=re.IGNORECASE,junk=\"\",terminate=\"$\"): it allows to match tokens using a regex. \n\n- fuzzy(ent,t=.8): the token is matched by analogy, and \u201ct\u201d parameter indicates the minimum threshold. \n\n- syn(options): it allows to match any of the tokens inserted into it.\n\n- all(): gives back individually all the tokens present in the document.\n\n- condition(cond): within it requires a condition and is used in combination with other matchers.\n\n##### **MULTI TOKEN**\n- span(matcher,m,n,separator=\"\",strategy=\"longest\"): set a minimum value (m) and a maximum value (n), it can match plus tokens that meet the conditions imposed in the matcher (join tokens to try to match the rule, between one token and the other you can set a separator).\n\n- phrase(matchers): more matchers can be inserted inside. The tokens must sequentially respect all the matchers inserted inside the object; it returns the tokens that have respected the conditions. \n\n- perm(matchers): similar to Phasematcher but the conditions do not have to be respected in order, the matchers are exchanged.\n\n- rep(matcher,minlen=1,maxlen=100): repeats the match inserted inside the object until the tokens all respect the condition set sequentially. It stops when the condition is no longer respected: the minimum and maximum of times can be indicated in the creation of the object.\n\n- skip(start_matcher,end_matcher,max_skip=5,skipcond=MatchAll()): returns the tokens that within a range (max_skip) can match initial (start_matcher) and final (end_matcher) condition. You can set, for tokens between initial and final match, a condition that they must comply (skip_cond). \n\n- expand(matcher,left=10,right=10): starting from the matchate token, based on the range set within the object, it also matches a certain number of tokens left (left) and a certain number of tokens right (right). \n\n- context(*matchers,max_dist=100): returns all tokens in a context bounded by matchers within the object, if the distance does not exceed that of max_dist.\n\n##### **CHOICE OF DIFFERENT CONDITIONS** \n\n- oneof(*matchers): more matchers can be inserted inside. It matches all tokens that respect at least one of the matcher within it (if a token matches in more matcher, returns it several times).\n \n- backoff(*matchers): given a series of matchers, it returns what that matches first, leaving out all the others. \n\n- chain(matcher1,matcher2): it applies the second matcher to the tokens extracted from the first. It is used in combination with expand, skip, and context.\n\n##### NORMALIZATION OF TOKENS\n- norm(matcher,fun): it normalizes the tokens (via a function) that are passed into the matcher present within it. Only for control, does not transform them.\n\n- lower(matcher): it allows passing all the tokens to the matcher inserted inside the object in lowercase. Only for the control, does not transform them.\n\n##### **FILTER FUNCTIONS**\n- filter(matcher,cond): it applies a filter to the candidates (matched tokens) after applying the matcher, it returns the candidates who meet the (boolean) condition set in the filter. The filter is a function that takes in input m and n, where n is the document length.\n\nexpandfilter(matcher,cond,left=10,right=10): it allows to apply a filter, starting from an initial matcher, also to the tokens external to it (the number depends on the parameters \"left\" and \"right\"). Useful if you want to filter candidates that respect the created rules.\n\n##### **POST-PROCESSING**\n- exclude(matcher): the tokens that match the condition within the object, will not then be displayed within the candidates. \n\n- post(matcher,f): it applies the function (f) to tokens extracted from the matcher with the aim of cleaning them up. The difference with the norm is that in this case the tokens are modified only for display. \n\n- token(fun=None): it is used to create new functions.\n\n### Input\nThe component accepts as input a string that represents the text to be analyzed. \n\n### Output\nThe output structure consists of two keys: tokens and matches. Tokens returns the tokenization of the received text in input and a boolean indicates whether the token is part of matches. Matcher is represented with a list.\nEach match contains the position of the first token that makes up the match (start), the position of the last (end), the score reached, the submatches and the list of tokens that make up the match. Taking as an example a simple input: \"Hello 1010 world\" and supposing to extract consecutive numbers within this sentence, the output will be:\n```json\n{\"tokens\": [[\"Hello\", False], [\"1010\", True], [\"world\", False]], \n\"matches\":[{\"start\": 1, \"end\": 2, \"score\": 1, \"submatches\": None, \n\"tokens\": [\"1010\"]}]}\n```\nWe then got a single match consisting of a single token, \"1010\", with score 1.",
+            "inputs": [
+              {
+                "id": "extract_matches",
+                "label": "extract matches",
+                "service": "extract_matches",
+                "to": "extract_matches"
+              }
+            ],
+            "outputs": [
+              {
+                "id": "extract_matches",
+                "label": "extract matches"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Custom",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "include_tokens",
+                  "type": "boolean",
+                  "label": "Include Tokens Information",
+                  "helper": "",
+                  "group": "",
+                  "value": true,
+                  "description": "",
+                  "validation": null
+                },
+                {
+                  "name": "rules",
+                  "type": "code",
+                  "label": "Rules",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "",
+                  "validation": {
+                    "required": "Required field"
+                  }
+                }
+              ],
+              "click": null,
+              "icon": "RiHeartsLine",
+              "values": {
+                "comment": "",
+                "alias": "address",
+                "debug": true,
+                "include_tokens": true,
+                "rules": "match1 = regex(\"via\")\nmatch2 = regex(\"[a-z,]+\")\nmatch3 = regex(\"[0-9V]+\")\n\naddress = phrase(match1, match2, match3)\naddress "
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 1276,
+            "y": 160
+          },
+          "__class__": "Node"
+        },
+        {
+          "id": "af6439a3-57d8-49ab-8b59-6c6ff2e275d3",
+          "position": {
+            "x": 2267,
+            "y": 219
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 150,
+          "height": 72,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "fsdao": {
+              "daos": {
+                "data": {
+                  "data": {
+                    "value": {
+                      "base": "/home/loko/loko",
+                      "hidden": {},
+                      "type": null
+                    }
+                  }
+                }
+              }
+            },
+            "name": "Matcher",
+            "events": null,
+            "description": "### Description\nMATCHER is a component used to extract entities from documents using rules. Inside there is a set of specific objects for a certain type of research.\n\nIt is possible to individually recall these objects for match bases and from the composition of them it is possible to realize more complex and articulated rules. Matcher objects work a list of tokens obtained from the text by means of a tokenizer and are validated by means of specific checkers. Alternatively, you can directly pass a tokenized text, if you want to customize the sentences tokenization.\n\n\n### Configuration\n\nAvailable services allow you to select the MATCHER instance to use. \nrule is the field in which to insert the rules to be applied to the received text in input. The matcher are divided into:\n\n##### INDIVIDUAL TOKENS\n- simple(value): it is used to match a specific token \n\n- regex(regex,flags=re.IGNORECASE,junk=\"\",terminate=\"$\"): it allows to match tokens using a regex. \n\n- fuzzy(ent,t=.8): the token is matched by analogy, and \u201ct\u201d parameter indicates the minimum threshold. \n\n- syn(options): it allows to match any of the tokens inserted into it.\n\n- all(): gives back individually all the tokens present in the document.\n\n- condition(cond): within it requires a condition and is used in combination with other matchers.\n\n##### **MULTI TOKEN**\n- span(matcher,m,n,separator=\"\",strategy=\"longest\"): set a minimum value (m) and a maximum value (n), it can match plus tokens that meet the conditions imposed in the matcher (join tokens to try to match the rule, between one token and the other you can set a separator).\n\n- phrase(matchers): more matchers can be inserted inside. The tokens must sequentially respect all the matchers inserted inside the object; it returns the tokens that have respected the conditions. \n\n- perm(matchers): similar to Phasematcher but the conditions do not have to be respected in order, the matchers are exchanged.\n\n- rep(matcher,minlen=1,maxlen=100): repeats the match inserted inside the object until the tokens all respect the condition set sequentially. It stops when the condition is no longer respected: the minimum and maximum of times can be indicated in the creation of the object.\n\n- skip(start_matcher,end_matcher,max_skip=5,skipcond=MatchAll()): returns the tokens that within a range (max_skip) can match initial (start_matcher) and final (end_matcher) condition. You can set, for tokens between initial and final match, a condition that they must comply (skip_cond). \n\n- expand(matcher,left=10,right=10): starting from the matchate token, based on the range set within the object, it also matches a certain number of tokens left (left) and a certain number of tokens right (right). \n\n- context(*matchers,max_dist=100): returns all tokens in a context bounded by matchers within the object, if the distance does not exceed that of max_dist.\n\n##### **CHOICE OF DIFFERENT CONDITIONS** \n\n- oneof(*matchers): more matchers can be inserted inside. It matches all tokens that respect at least one of the matcher within it (if a token matches in more matcher, returns it several times).\n \n- backoff(*matchers): given a series of matchers, it returns what that matches first, leaving out all the others. \n\n- chain(matcher1,matcher2): it applies the second matcher to the tokens extracted from the first. It is used in combination with expand, skip, and context.\n\n##### NORMALIZATION OF TOKENS\n- norm(matcher,fun): it normalizes the tokens (via a function) that are passed into the matcher present within it. Only for control, does not transform them.\n\n- lower(matcher): it allows passing all the tokens to the matcher inserted inside the object in lowercase. Only for the control, does not transform them.\n\n##### **FILTER FUNCTIONS**\n- filter(matcher,cond): it applies a filter to the candidates (matched tokens) after applying the matcher, it returns the candidates who meet the (boolean) condition set in the filter. The filter is a function that takes in input m and n, where n is the document length.\n\nexpandfilter(matcher,cond,left=10,right=10): it allows to apply a filter, starting from an initial matcher, also to the tokens external to it (the number depends on the parameters \"left\" and \"right\"). Useful if you want to filter candidates that respect the created rules.\n\n##### **POST-PROCESSING**\n- exclude(matcher): the tokens that match the condition within the object, will not then be displayed within the candidates. \n\n- post(matcher,f): it applies the function (f) to tokens extracted from the matcher with the aim of cleaning them up. The difference with the norm is that in this case the tokens are modified only for display. \n\n- token(fun=None): it is used to create new functions.\n\n### Input\nThe component accepts as input a string that represents the text to be analyzed. \n\n### Output\nThe output structure consists of two keys: tokens and matches. Tokens returns the tokenization of the received text in input and a boolean indicates whether the token is part of matches. Matcher is represented with a list.\nEach match contains the position of the first token that makes up the match (start), the position of the last (end), the score reached, the submatches and the list of tokens that make up the match. Taking as an example a simple input: \"Hello 1010 world\" and supposing to extract consecutive numbers within this sentence, the output will be:\n```json\n{\"tokens\": [[\"Hello\", False], [\"1010\", True], [\"world\", False]], \n\"matches\":[{\"start\": 1, \"end\": 2, \"score\": 1, \"submatches\": None, \n\"tokens\": [\"1010\"]}]}\n```\nWe then got a single match consisting of a single token, \"1010\", with score 1.",
+            "inputs": [
+              {
+                "id": "extract_matches",
+                "label": "extract matches",
+                "service": "extract_matches",
+                "to": "extract_matches"
+              }
+            ],
+            "outputs": [
+              {
+                "id": "extract_matches",
+                "label": "extract matches"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Custom",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "include_tokens",
+                  "type": "boolean",
+                  "label": "Include Tokens Information",
+                  "helper": "",
+                  "group": "",
+                  "value": true,
+                  "description": "",
+                  "validation": null
+                },
+                {
+                  "name": "rules",
+                  "type": "code",
+                  "label": "Rules",
+                  "helper": "",
+                  "group": "",
+                  "value": null,
+                  "description": "",
+                  "validation": {
+                    "required": "Required field"
+                  }
+                }
+              ],
+              "click": null,
+              "icon": "RiHeartsLine",
+              "values": {
+                "comment": "",
+                "alias": "mail",
+                "debug": true,
+                "include_tokens": true,
+                "rules": "regex(\"^\\S+@\\S+$\")"
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 2267,
+            "y": 219
+          },
+          "__class__": "Node"
+        }
+      ],
+      "edges": [
+        {
+          "id": "reactflow__edge-6735eb18-efa7-41dc-b86d-c15d6eb18c34output-c7a9483a-744b-4aa2-8ce8-bf48802476e7input",
+          "source": "6735eb18-efa7-41dc-b86d-c15d6eb18c34",
+          "sourceHandle": "output",
+          "target": "c7a9483a-744b-4aa2-8ce8-bf48802476e7",
+          "targetHandle": "input",
+          "data": {
+            "startColor": "#D770AD",
+            "stopColor": "#D770AD"
+          },
+          "selected": false,
+          "dragging": false,
+          "__class__": "Edge"
+        },
+        {
+          "id": "reactflow__edge-78d15e2a-5aad-4bf5-8e40-04eb631ffd89output-6edfe4b8-0306-4740-a94b-076b644e01ddinput",
+          "source": "78d15e2a-5aad-4bf5-8e40-04eb631ffd89",
+          "sourceHandle": "output",
+          "target": "6edfe4b8-0306-4740-a94b-076b644e01dd",
+          "targetHandle": "input",
+          "data": {
+            "startColor": "#D770AD",
+            "stopColor": "#D770AD"
+          },
+          "selected": false,
+          "dragging": false,
+          "__class__": "Edge"
+        },
+        {
+          "id": "reactflow__edge-6735eb18-efa7-41dc-b86d-c15d6eb18c34output-403e44e6-fa3f-4d32-9347-0d8a467f3f00extract_matches",
+          "source": "6735eb18-efa7-41dc-b86d-c15d6eb18c34",
+          "sourceHandle": "output",
+          "target": "403e44e6-fa3f-4d32-9347-0d8a467f3f00",
+          "targetHandle": "extract_matches",
+          "data": {
+            "startColor": "#D770AD",
+            "stopColor": "#888"
+          },
+          "selected": false,
+          "dragging": false,
+          "__class__": "Edge"
+        },
+        {
+          "id": "reactflow__edge-c7a9483a-744b-4aa2-8ce8-bf48802476e7output-ddcacdb5-24b9-473b-b5ef-97d37bda79b2extract_matches",
+          "source": "c7a9483a-744b-4aa2-8ce8-bf48802476e7",
+          "sourceHandle": "output",
+          "target": "ddcacdb5-24b9-473b-b5ef-97d37bda79b2",
+          "targetHandle": "extract_matches",
+          "data": {
+            "startColor": "#D770AD",
+            "stopColor": "#888"
+          },
+          "selected": false,
+          "dragging": false,
+          "__class__": "Edge"
+        },
+        {
+          "id": "reactflow__edge-6735eb18-efa7-41dc-b86d-c15d6eb18c34output-7b6c06c5-9274-4499-8e24-3a00d4f1a9a6extract_matches",
+          "source": "6735eb18-efa7-41dc-b86d-c15d6eb18c34",
+          "sourceHandle": "output",
+          "target": "7b6c06c5-9274-4499-8e24-3a00d4f1a9a6",
+          "targetHandle": "extract_matches",
+          "data": {
+            "startColor": "#D770AD",
+            "stopColor": "#888"
+          },
+          "selected": false,
+          "dragging": false,
+          "__class__": "Edge"
+        },
+        {
+          "id": "reactflow__edge-6735eb18-efa7-41dc-b86d-c15d6eb18c34output-163a9617-4100-4533-ad64-960228d340cfextract_matches",
+          "source": "6735eb18-efa7-41dc-b86d-c15d6eb18c34",
+          "sourceHandle": "output",
+          "target": "163a9617-4100-4533-ad64-960228d340cf",
+          "targetHandle": "extract_matches",
+          "data": {
+            "startColor": "#D770AD",
+            "stopColor": "#888"
+          },
+          "selected": false,
+          "dragging": false,
+          "__class__": "Edge"
+        },
+        {
+          "id": "reactflow__edge-6edfe4b8-0306-4740-a94b-076b644e01ddoutput-af6439a3-57d8-49ab-8b59-6c6ff2e275d3extract_matches",
+          "source": "6edfe4b8-0306-4740-a94b-076b644e01dd",
+          "sourceHandle": "output",
+          "target": "af6439a3-57d8-49ab-8b59-6c6ff2e275d3",
+          "targetHandle": "extract_matches",
+          "data": {
+            "startColor": "#D770AD",
+            "stopColor": "#888"
+          },
+          "selected": false,
+          "dragging": false,
+          "__class__": "Edge"
+        }
+      ],
+      "__class__": "Graph"
+    }
+  },
+  "open": [
+    "main"
+  ],
+  "active": "main",
+  "version": "1.0.0",
+  "__class__": "Project"
+}
